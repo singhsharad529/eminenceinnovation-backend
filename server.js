@@ -18,6 +18,10 @@ app.use(express.json());
 app.use("/api/users", userRoutes);
 app.use("/api/notes", noteRoutes);
 
+app.get("/", (req, res) => {
+  res.send("Backend Server for mynotes app");
+});
+
 //---------------------deployment---------------
 __dirname = path.resolve();
 if (process.env.NODE_ENV == "production") {
