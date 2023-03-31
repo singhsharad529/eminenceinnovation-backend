@@ -5,12 +5,13 @@ const generateToken = require("../utils/generateToken");
 
 const authUser = asyncHandler(async (req, res) => {
   //data getting from frontend
-  // console.log(req.body);
+  console.log(req.body);
   const { email, password } = req.body;
   console.log(req.body);
   const user = await User.findOne({ email });
 
   if (user && (await user.matchPassword(password))) {
+    console.log("sharad");
     res.json({
       _id: user._id,
       name: user.name,

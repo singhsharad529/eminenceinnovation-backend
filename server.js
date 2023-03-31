@@ -3,6 +3,7 @@ const dotenv = require("dotenv");
 const app = express();
 const notes = require("./data/notes");
 const noteRoutes = require("./routes/noteRoutes");
+const cors = require("cors");
 
 const mongoose = require("mongoose");
 const connectDB = require("./config/db");
@@ -13,6 +14,7 @@ const path = require("path");
 dotenv.config();
 connectDB();
 
+app.use(cors());
 app.use(express.json());
 
 app.use("/api/users", userRoutes);
