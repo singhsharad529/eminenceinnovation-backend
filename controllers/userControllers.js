@@ -13,7 +13,7 @@ const authUser = asyncHandler(async (req, res) => {
   if (user && (await user.matchPassword(password))) {
     res.setHeader(
       "Access-Control-Allow-Origin",
-      "https://mynotemate.netlify.app/"
+      "https://mynotemate.netlify.app"
     );
     res.setHeader(
       "Access-Control-Allow-Methods",
