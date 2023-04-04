@@ -11,19 +11,6 @@ const authUser = asyncHandler(async (req, res) => {
   const user = await User.findOne({ email });
 
   if (user && (await user.matchPassword(password))) {
-    res.setHeader(
-      "Access-Control-Allow-Origin",
-      "https://mynotemate.netlify.app"
-    );
-    res.setHeader(
-      "Access-Control-Allow-Methods",
-      "GET, POST, OPTIONS, PUT, PATCH, DELETE"
-    ); // If needed
-    res.setHeader(
-      "Access-Control-Allow-Headers",
-      "X-Requested-With,content-type"
-    ); // If needed
-
     res.json({
       _id: user._id,
       name: user.name,
