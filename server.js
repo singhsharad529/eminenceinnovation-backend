@@ -14,7 +14,13 @@ const path = require("path");
 dotenv.config();
 connectDB();
 
-app.use(cors({ origin: "https://mynotemate.netlify.app/" }));
+app.use(
+  cors({
+    origin: "https://mynotemate.netlify.app/",
+    optionsSuccessStatus: 200, // For legacy browser support
+    methods: ["GET", "POST"],
+  })
+);
 app.use(express.json());
 
 app.use("/api/users", userRoutes);
