@@ -1,7 +1,6 @@
 const express = require("express");
 const dotenv = require("dotenv");
 const app = express();
-const notes = require("./data/notes");
 const productRoutes = require("./routes/productRoutes");
 const cors = require("cors");
 
@@ -10,12 +9,17 @@ const userRoutes = require("./routes/userRoutes");
 const { notFound, errorHandler } = require("./middlewares/errorMiddleware");
 const path = require("path");
 
+// added environment variables for server use
 dotenv.config();
+
+// executing db connection module
 connectDB();
 
+//middlewares
 app.use(cors());
 app.use(express.json());
 
+//routes
 app.use("/api/users", userRoutes);
 app.use("/api/products", productRoutes);
 
@@ -32,6 +36,7 @@ if (process.env.NODE_ENV == "production") {
   });
 }
 
+//middlewares for error handling
 app.use(notFound);
 app.use(errorHandler);
 
