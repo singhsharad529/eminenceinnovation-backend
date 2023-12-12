@@ -1,34 +1,37 @@
 const asyncHandler = require("express-async-handler");
 const Product = require("../models/productModule");
 
+/* Only a authenticated user can create and get a product 
+  - to create or get a product you need to add a Bearer Token in you Authorization header  
+*/
+
+// Get all products from database
 const getProducts = asyncHandler(async (req, res) => {
   const proudcts = await Product.find();
   console.log("insidde get notes");
   res.json(proudcts);
 });
 
-/* Only a authenticated and authorized user can create a product
-  - to create a product you need to add a Bearer Token in you Authorization header  
-*/
+// Get all products of a specific category
+const getProductsByCategory = asyncHandler(async (req, res) => {
+  const { category } = req.query;
+  console.log(category);
+  const proudcts = await Product.find({ category });
+  console.log(proudcts);
+  res.json(proudcts);
+});
+
+// Create a product
 const createProduct = asyncHandler(async (req, res) => {
-  const { title, thumbnail, price } = req.body;
-  if (!title || !thumbnail || !price) {
-    res.status(400);
-    throw new Error("Please Fill all the Fields");
-  } else {
-    /* user property will come from from authMiddleware 
+  const productInfo = req.body;
+  /* user property will come from from authMiddleware 
     where it extract token from Authorization header 
     and add user id into req object
     */
-    const product = new Product({
-      user: req.user._id,
-      title,
-      thumbnail,
-      price,
-    });
-    const createNote = await product.save();
-    res.status(201).json(createNote);
-  }
+  productInfo.user = req.user;
+  const product = new Product(productInfo);
+  const createNote = await product.save();
+  res.status(201).json(createNote);
 });
 
 // const getNoteById = asyncHandler(async (req, res) => {
@@ -78,4 +81,4 @@ const createProduct = asyncHandler(async (req, res) => {
 //     throw new Error("Product not found");
 //   }
 // });
-module.exports = { createProduct, getProducts };
+module.exports = { createProduct, getProducts, getProductsByCategory };
