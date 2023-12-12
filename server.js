@@ -2,10 +2,9 @@ const express = require("express");
 const dotenv = require("dotenv");
 const app = express();
 const notes = require("./data/notes");
-const noteRoutes = require("./routes/noteRoutes");
+const productRoutes = require("./routes/productRoutes");
 const cors = require("cors");
 
-const mongoose = require("mongoose");
 const connectDB = require("./config/db");
 const userRoutes = require("./routes/userRoutes");
 const { notFound, errorHandler } = require("./middlewares/errorMiddleware");
@@ -18,7 +17,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/api/users", userRoutes);
-app.use("/api/notes", noteRoutes);
+app.use("/api/products", productRoutes);
 
 app.get("/", (req, res) => {
   res.send("Backend Server for mynotes app");

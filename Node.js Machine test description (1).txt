@@ -1,0 +1,53 @@
+Task Description:
+
+	Implement a Fullstack NodeJS application using ReactJS in the frontend, NodeJS(express) as server and MongoDB as database, with below functionality.
+Note: design wireframes are just for reference, feel free to style it as you wish.
+
+1. Landing page should be the home page (check for design ref: home-page.png), with background image, and header. There should be "Logo", "company name", "Login" and "Sign Up" buttons on the header.
+
+2. When clicked on "SignUp"
+	- open the Registration popup as shown in the design(ref: registar-page.png) 
+	- implement one signup API for user registration(with just username and password), should store the data in the DB
+	- should check for user name duplication 
+	- implement hashing for password 
+	- show the status of registration either success/failure on the popup itself. 
+	- on clicking the close(x) button on the popup, close the popup.
+
+3. When clicked on "Login"
+	- open the login popup as shown in the design(ref: login-page.png) 
+	- implement one login API, should verify the given credentials with the one in DB, proceed accordingly.
+	- if login failed: show the error message on the popup
+	- if login success, close the popup and redirect the user to products page(ref: products-page)
+4. Products page
+	- only logged in users should be able to visit this page. 
+	- On the product page header display the user name and show logout button 
+	- implement one products API(with get method), which should fetch data from the given("https://dummyjson.com/products") external API and return to the client.
+	- products page should look like the given design reference. 
+	- segregate the data based on "category" and list all the products with that category under the header.
+		eg: all the products with "laptop" category should grouped under one header, with Laptops as header title.
+	- each product information (only 3 fields for now) should be shown on card as in the design
+		- 1. Product thumbnail(you will see the url in the API data)
+		- 2. Product Title
+		- 3. Product Price	
+	- By default the all the products  under category header should be collapsed/hidden, and when the header is clicked, it should expand showing all the products under that category.
+	- animate the arrow icon on the header accordingly.
+5. (optional) Logout functionality. -on logout redirect the user to home page
+6. (Optional) JWT authentication, so only the authenticated users allowed to the request the products data.
+
+Summary:
+- should use ReactJS in the frontend, NodeJS with Express and MongoDB in the backend.
+- API's: 1. Registration, 2. Login, 3. Logout(optional), and 4. products API, with proper middleware wherever possible.
+- Client application should look as in the design, additional styling is upto the candidate. And make it responsive*.
+- (optional) JWT authentication. 
+- (optional) You can use Redux store, Routing, write unit tests if possible.
+- Use either local MongoDB or Mongo Atlas, whichever is comfirtable.
+- Provide proper Readme.md file, describing how to setup and run the project.
+- We are expecting a production quality implementation. 
+
+External API:
+	url: "https://dummyjson.com/products"
+	method: GET 
+  
+ =================================== All The Best =====================================
+
+ 

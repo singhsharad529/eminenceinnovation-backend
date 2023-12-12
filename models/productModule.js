@@ -1,17 +1,17 @@
 const mongoose = require("mongoose");
 
-const noteSchema = mongoose.Schema(
+const productSchema = mongoose.Schema(
   {
     title: {
       type: String,
       required: true,
     },
-    content: {
+    thumbnail: {
       type: String,
       required: true,
     },
-    category: {
-      type: String,
+    price: {
+      type: Number,
       required: true,
     },
     user: {
@@ -25,6 +25,6 @@ const noteSchema = mongoose.Schema(
   }
 );
 
-const Note = mongoose.model("Note", noteSchema);
+const Product = mongoose.model("Product", productSchema);
 
-module.exports = Note;
+module.exports = Product;

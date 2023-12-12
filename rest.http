@@ -1,0 +1,44 @@
+### Signup with username and password
+POST http://localhost:5000/api/users
+Content-Type: application/json
+
+{
+    "username":"singh@gmail.com",
+    "password":"sharad123"
+}
+
+###  Login with username and password
+POST http://localhost:5000/api/users/login
+Content-Type: application/json
+
+{
+    "username":"singh@gmail.com",
+    "password":"sharad123"
+}
+
+
+### Only a Authenticated user can get and create a product
+### Get all products
+GET http://localhost:5000/api/products/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NzcyMjk4NDE3NDY2NDdkNGEzZDFhNiIsImlhdCI6MTcwMjM5MTQ2NiwiZXhwIjoxNzAyNDc3ODY2fQ.tM5-sbc_qQXQWwpyIqrXCdborjjmmClm7d1lPXL0sRA
+
+
+### Create a product
+POST http://localhost:5000/api/products/create
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NzcyMjk4NDE3NDY2NDdkNGEzZDFhNiIsImlhdCI6MTcwMjM5MTQ2NiwiZXhwIjoxNzAyNDc3ODY2fQ.tM5-sbc_qQXQWwpyIqrXCdborjjmmClm7d1lPXL0sRA
+
+{
+    "title": "MacBook Pro",
+    "description": "MacBook Pro 2021 with mini-LED display may launch between September, November",
+    "price": 1749,
+    "discountPercentage": 11.02,
+    "rating": 4.57,
+    "stock": 83,
+    "brand": "Apple",
+    "category": "laptops",
+    "thumbnail": "https://i.dummyjson.com/data/products/6/thumbnail.png"
+
+}
+

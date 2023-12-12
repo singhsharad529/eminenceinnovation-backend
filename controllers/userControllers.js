@@ -1,22 +1,19 @@
 const asyncHandler = require("express-async-handler");
 const User = require("../models/userModel");
 const generateToken = require("../utils/generateToken");
-// const User = require("../models/userModel");
 
+// login a user
 const authUser = asyncHandler(async (req, res) => {
-  //data getting from frontend
+  //retrieving a username and password from body
+  const { username, password } = req.body;
 
-  const { email, password } = req.body;
+  const user = await User.findOne({ username });
 
-  const user = await User.findOne({ email });
-
+  //checking if a given password matched with stored password
   if (user && (await user.matchPassword(password))) {
     res.json({
       _id: user._id,
-      name: user.name,
-      email: user.email,
-      isAdmin: user.isAdmin,
-      pic: user.pic,
+      username: user.username,
       token: generateToken(user._id),
     });
   } else {
@@ -25,32 +22,28 @@ const authUser = asyncHandler(async (req, res) => {
   }
 });
 
+// signup a user
 const registerUser = asyncHandler(async (req, res) => {
-  //data getting from frontend
-  const { name, email, password, pic } = req.body;
-  console.log("register");
-  //user is exist or not
-  const userExist = await User.findOne({ email });
+  //retrieving a username and password from body
+  const { username, password } = req.body;
+
+  //user exist or not
+  const userExist = await User.findOne({ username });
   if (userExist) {
     res.status(400);
     throw new Error("User Already Exists");
   }
 
-  //creating user if it is not present
+  //creating a user, if it is not present in the db
   const user = await User.create({
-    name,
-    email,
+    username,
     password,
-    pic,
   });
 
   if (user) {
     res.status(200).json({
       _id: user._id,
-      name: user.name,
-      email: user.email,
-      isAdmin: user.isAdmin,
-      pic: user.pic,
+      username: user.username,
       token: generateToken(user._id),
     });
   } else {
@@ -59,29 +52,4 @@ const registerUser = asyncHandler(async (req, res) => {
   }
 });
 
-const updateUserProfile = asyncHandler(async (req, res) => {
-  const user = await User.findById(req.user._id);
-  if (user) {
-    user.name = req.body.name || user.name;
-    user.email = req.body.email || user.email;
-    user.pic = req.body.pic || user.pic;
-
-    if (req.body.password) {
-      user.password = req.body.password;
-    }
-
-    const updatedUser = await user.save();
-    res.json({
-      _id: updatedUser._id,
-      name: updatedUser.name,
-      email: updatedUser.email,
-      pic: updatedUser.pic,
-      token: generateToken(updatedUser._id),
-    });
-  } else {
-    res.status(404);
-    throw new Error("User Not Found");
-  }
-});
-
-module.exports = { authUser, registerUser, updateUserProfile };
+module.exports = { authUser, registerUser };
