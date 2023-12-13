@@ -135,6 +135,7 @@ Step 3: Put your credentials in the .env file.
 ```
 
 **For each endpoints you should add Bearer Token inside Authorization header**
+**For more testing of APIs please check rest.http file and add extention RESt Client in you vsCode editor**
 
 ## Author
 
