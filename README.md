@@ -73,7 +73,7 @@ $ http://localhost:3000/auth/login
 
 ```
 
-## Available API Endpoints For Blogs:
+## Available API Endpoints For Products:
 
 **Only a Authenticated user can get and create a product, so it will require Authorization Header with Bearer token**
 **Eg. Authorization : Bearer <Token_Value>**
