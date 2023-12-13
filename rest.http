@@ -21,20 +21,19 @@ Content-Type: application/json
 ### Get all products
 GET http://localhost:5000/api/products/
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NzcyMjk4NDE3NDY2NDdkNGEzZDFhNiIsImlhdCI6MTcwMjM5MTQ2NiwiZXhwIjoxNzAyNDc3ODY2fQ.tM5-sbc_qQXQWwpyIqrXCdborjjmmClm7d1lPXL0sRA
-
+Authorization: Bearer <Token>
 
 ### Get all products by category
 ### You can try with two categories: smartphones and laptops
 GET http://localhost:5000/api/products/search?category=smartphones
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NzcyMjk4NDE3NDY2NDdkNGEzZDFhNiIsImlhdCI6MTcwMjM5MTQ2NiwiZXhwIjoxNzAyNDc3ODY2fQ.tM5-sbc_qQXQWwpyIqrXCdborjjmmClm7d1lPXL0sRA
+Authorization: Bearer <Token>
 
 
 ### Create a product
 POST http://localhost:5000/api/products/create
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NzcyMjk4NDE3NDY2NDdkNGEzZDFhNiIsImlhdCI6MTcwMjM5MTQ2NiwiZXhwIjoxNzAyNDc3ODY2fQ.tM5-sbc_qQXQWwpyIqrXCdborjjmmClm7d1lPXL0sRA
+Authorization: Bearer <Token> 
 
 {
     "title": "HP Pavilion 15-DK1056WM",

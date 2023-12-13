@@ -24,6 +24,7 @@ const authUser = asyncHandler(async (req, res) => {
 
 // signup a user
 const registerUser = asyncHandler(async (req, res) => {
+  console.log(req.body);
   //retrieving a username and password from body
   const { username, password } = req.body;
 

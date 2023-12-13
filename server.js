@@ -7,7 +7,6 @@ const cors = require("cors");
 const connectDB = require("./config/db");
 const userRoutes = require("./routes/userRoutes");
 const { notFound, errorHandler } = require("./middlewares/errorMiddleware");
-const path = require("path");
 
 // added environment variables for server use
 dotenv.config();
@@ -20,21 +19,11 @@ app.use(cors());
 app.use(express.json());
 
 //routes
+app.get("/", (req, res) => {
+  res.send("Backend Server for product app");
+});
 app.use("/api/users", userRoutes);
 app.use("/api/products", productRoutes);
-
-app.get("/", (req, res) => {
-  res.send("Backend Server for mynotes app");
-});
-
-//---------------------deployment---------------
-__dirname = path.resolve();
-if (process.env.NODE_ENV == "production") {
-  app.use(express.static(path.join(__dirname, "/frontend/build")));
-  app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
-  });
-}
 
 //middlewares for error handling
 app.use(notFound);

@@ -8,16 +8,13 @@ const Product = require("../models/productModule");
 // Get all products from database
 const getProducts = asyncHandler(async (req, res) => {
   const proudcts = await Product.find();
-  console.log("insidde get notes");
   res.json(proudcts);
 });
 
 // Get all products of a specific category
 const getProductsByCategory = asyncHandler(async (req, res) => {
   const { category } = req.query;
-  console.log(category);
   const proudcts = await Product.find({ category });
-  console.log(proudcts);
   res.json(proudcts);
 });
 
