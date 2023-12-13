@@ -31,11 +31,11 @@ For development, you will only need Node.js and a node global package, Yarn, ins
 
 If the installation was successful, you should be able to run the following command.
 
-$ node --version
-v20.9.0
+    $ node --version
+    v20.9.0
 
-$ npm --version
-10.1.0
+    $ npm --version
+    10.1.0
 
 ## Description
 
@@ -44,28 +44,28 @@ $ npm --version
 Step 1: Clone the repo
 
 ```bash
-git clone https://github.com/singhsharad529/eminenceinnovation-backend
+    git clone https://github.com/singhsharad529/eminenceinnovation-backend
 ```
 
 Step 2: cd into the cloned repo and run:
 
 ```bash
-npm install
+    npm install
 ```
 
 Step 3: Put your credentials in the .env file.
 
 ```bash
-PORT=5000
-MONGO_URI=ADD YOUR JWT SECRET
-NODE_ENV=development or production
-JWT_SECRET=sADD YOUR JWT SECRET
+    PORT=5000
+    MONGO_URI=ADD YOUR JWT SECRET
+    NODE_ENV=development or production
+    JWT_SECRET=sADD YOUR JWT SECRET
 ```
 
 ## Installation
 
 ```bash
-$ npm install
+    $ npm install
 
 ```
 
@@ -73,7 +73,7 @@ $ npm install
 
 ```bash
 # development
-$ npm start
+    $ npm start
 
 ```
 
@@ -84,21 +84,21 @@ $ npm start
 ```bash
 # Register with Username,Password( POST request )
 
-$ http://localhost:5000/api/users
+    $ http://localhost:5000/api/users
 
-{
-	"username":"dymmyUsername@gmail.com",
-    "password":"dummypassword"
-}
+    {
+        "username":"dymmyUsername@gmail.com",
+        "password":"dummypassword"
+    }
 
 # Login with Username,Password( POST request )
 
-$ http://localhost:3000/auth/login
+    $ http://localhost:3000/auth/login
 
-{
-    "username":"dymmyUsername@gmail.com",
-    "password":"dummypassword"
-}
+    {
+        "username":"dymmyUsername@gmail.com",
+        "password":"dummypassword"
+    }
 
 ```
 
@@ -110,27 +110,27 @@ $ http://localhost:3000/auth/login
 ```bash
 # Get all Products ( GET request )
 
-$ http://localhost:5000/api/products/
+    $ http://localhost:5000/api/products/
 
 # Get all products by category : smartphones and laptops ( GET request )
 
-$ http://localhost:5000/api/products/search?category=smartphones
+    $ http://localhost:5000/api/products/search?category=smartphones
 
 # Create a product( POST request )
 
-$ http://localhost:5000/api/products/create
+    $ http://localhost:5000/api/products/create
 
-{
-    "title": "perfume Oil",
-    "description": "Mega Discount, Impression of Acqua Di Gio by GiorgioArmani concentrated attar perfume Oil",
-    "price": 13,
-    "discountPercentage": 8.4,
-    "rating": 4.26,
-    "stock": 65,
-    "brand": "Impression of Acqua Di Gio",
-    "category": "fragrances",
-    "thumbnail": "https://i.dummyjson.com/data/products/11/thumbnail.jpg"
-}
+    {
+        "title": "perfume Oil",
+        "description": "Mega Discount, Impression of Acqua Di Gio by GiorgioArmani concentrated attar perfume Oil",
+        "price": 13,
+        "discountPercentage": 8.4,
+        "rating": 4.26,
+        "stock": 65,
+        "brand": "Impression of Acqua Di Gio",
+        "category": "fragrances",
+        "thumbnail": "https://i.dummyjson.com/data/products/11/thumbnail.jpg"
+    }
 
 ```
 
