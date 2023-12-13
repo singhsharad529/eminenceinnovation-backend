@@ -31,11 +31,11 @@ For development, you will only need Node.js and a node global package, Yarn, ins
 
 If the installation was successful, you should be able to run the following command.
 
-    $ node --version
-    v20.9.0
+$ node --version
+v20.9.0
 
-    $ npm --version
-    10.1.0
+$ npm --version
+10.1.0
 
 ## Description
 
