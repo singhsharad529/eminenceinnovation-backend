@@ -1,11 +1,15 @@
 const express = require("express");
-const dotenv = require("dotenv");
 const app = express();
-const productRoutes = require("./routes/productRoutes");
+
+const dotenv = require("dotenv");
 const cors = require("cors");
 
 const connectDB = require("./config/db");
+
 const userRoutes = require("./routes/userRoutes");
+const productRoutes = require("./routes/productRoutes");
+
+// Middlewares to handle error
 const { notFound, errorHandler } = require("./middlewares/errorMiddleware");
 
 // added environment variables for server use
@@ -20,6 +24,7 @@ app.use(express.json());
 
 //routes
 app.get("/", (req, res) => {
+  // testing end point : To check server is  running properly or not
   res.send("Backend Server for product app");
 });
 app.use("/api/users", userRoutes);
