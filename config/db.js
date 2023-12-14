@@ -1,7 +1,10 @@
 const mongoose = require("mongoose");
 
 /*
-  - Database connection function
+  - connectDB is database connection function
+  - It asked for MONGO_URI with username and password
+  - Username and password are already embeded into MONGo_URI 
+  - MONGO_URI value present inside our .env file
 */
 
 const connectDB = async () => {

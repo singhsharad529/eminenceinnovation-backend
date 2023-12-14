@@ -1,5 +1,10 @@
 const mongoose = require("mongoose");
 
+/*
+    - Schema for products
+    - this schema has same properties as "https://dummyjson.com/products" provide use
+    
+*/
 const productSchema = mongoose.Schema(
   {
     title: {

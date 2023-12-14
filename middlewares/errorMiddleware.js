@@ -1,4 +1,4 @@
-// middleware to handle not found endpoint
+// middleware to handle not found endpoints
 const notFound = (req, res) => {
   const error = new Error(`Not Found ${req.originUrl}`);
   res.status(404);

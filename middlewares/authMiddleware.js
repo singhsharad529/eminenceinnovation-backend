@@ -3,6 +3,14 @@ const User = require("../models/userModel");
 
 const asyncHandler = require("express-async-handler");
 
+/*
+ - protect is a middleware called authMi which handle authorization task
+ - It extract Authorization header from request object 
+ - Finds Bearer token from header
+ - Perform jwt verfication by extracting id value from token
+ - Check if extracted id is present into our database or not
+*/
+
 const protect = asyncHandler(async (req, res, next) => {
   // console.log("inside protect");
   let token;
