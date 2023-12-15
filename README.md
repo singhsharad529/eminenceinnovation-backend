@@ -93,7 +93,7 @@ Step 3: Put your credentials in the .env file.
 
 # Login with Username,Password( POST request )
 
-    $ http://localhost:3000/auth/login
+    $ http://localhost:3000/api/users/login
 
     {
         "username":"dymmyUsername@gmail.com",
